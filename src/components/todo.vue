@@ -36,8 +36,8 @@
 <template>
   <div class="cell-item">
     <text class="todo-name"
-          ref="name"
-          :style="textStyle">{{todo.name}}</text>
+          :style="textStyle"
+          @click="jump('/TodoDetail/' + todoId)">{{todo.name}}</text>
     <text class="toggle"
           :style="buttonStyle"
           @click="toggleDone">{{isDone}}</text>

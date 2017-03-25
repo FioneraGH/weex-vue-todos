@@ -52,7 +52,7 @@
   <div class="header">
     <div class="title-menu"
          @click="jump('/')">
-      <text class="title">TODO</text>
+      <text class="title">TODO {{count}}</text>
     </div>
     <div class="nav">
       <text class="button"
@@ -66,6 +66,14 @@
 const modal = weex.requireModule('modal')
 
 export default {
+  computed: {
+    count() {
+      const todos = this.$store.getters.allTodos
+      return todos.filter(todo => {
+        return !todo.done
+      }).length
+    }
+  },
   methods: {
     openAddTodo(event) {
       modal.prompt({

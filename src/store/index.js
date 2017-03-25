@@ -22,12 +22,15 @@ const store = new Vuex.Store({
   },
 
   getters: {
-    activeTodos(state, getters) {
+    allTodos(state, getters) {
       const { todos } = state
       return Object.keys(todos).reduce((acc, key) => {
-        acc[key] = todos[key]
+        acc.push({
+          ...todos[key],
+          todoId: key
+        })
         return acc
-      }, {})
+      }, [])
     }
   }
 })

@@ -23,7 +23,6 @@
     <list class="todos-list">
       <cell class="todos-cell"
             v-for="todo in todos"
-            :key="todo.todoId"
             append="tree">
         <todo :todo="todo"
               :todoId="todo.todoId"></todo>
@@ -40,14 +39,8 @@ export default {
   components: { AppHeader, Todo },
   computed: {
     todos() {
-      const todos = this.$store.getters.activeTodos
-      return Object.keys(todos).reduce((acc, key) => {
-        acc.push({
-          ...todos[key],
-          todoId: key
-        })
-        return acc
-      }, []).sort((a, b) => {
+      const todos = this.$store.getters.allTodos
+      return todos.sort((a, b) => {
         return a.done - b.done
       })
     }

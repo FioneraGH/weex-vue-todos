@@ -2,7 +2,9 @@ export default {
   methods: {
     jump(to) {
       if (this.$router) {
-        this.$router.push(to)
+        this.$router.push({
+          path: to
+        })
       }
     }
   }

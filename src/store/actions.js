@@ -15,6 +15,16 @@ export function ADD_TODO({ commit, dispatch, state }, { name }) {
   storage.setItem('todos', JSON.stringify(state.todos))
 }
 
+export function DELETE_TODO({ commit, dispatch, state }, { key, name }) {
+  commit('DELETE_TODO', { key, name })
+  storage.setItem('todos', JSON.stringify(state.todos))
+}
+
+export function MODIFY_TODO({ commit, dispatch, state }, { key, name }) {
+  commit('MODIFY_TODO', { key, name })
+  storage.setItem('todos', JSON.stringify(state.todos))
+}
+
 export function DONE_TODO({ commit, dispatch, state }, { key, done }) {
   commit('DONE_TODO', { key, done })
   storage.setItem('todos', JSON.stringify(state.todos))
