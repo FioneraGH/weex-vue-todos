@@ -23,8 +23,6 @@
   margin-top: 500px;
   flex-direction: row;
   justify-content: space-between;
-  width: 750px;
-  align-items: center;
 }
 
 .button {
@@ -32,6 +30,7 @@
   border-style: solid;
   border-color: #2c3e50;
   background-color: #35495e;
+  margin: 20px;
   height: 70px;
   width: 140px;
   border-radius: 8px;

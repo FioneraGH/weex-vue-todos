@@ -9,14 +9,7 @@ export function ADD_TODO(state, { name }) {
 }
 
 export function DELETE_TODO(state, { key }) {
-  let todos = state.todos
-  let result = Object.keys(todos).filter(todoId => {
-    return todoId !== key
-  }).reduce((acc, key) => {
-    acc[key] = todos[key]
-    return acc
-  }, {})
-  Vue.set(state, 'todos', result)
+  Vue.set(state.todos, key, undefined)
 }
 
 export function MODIFY_TODO(state, { key, name }) {

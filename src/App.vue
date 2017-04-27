@@ -1,5 +1,5 @@
 <template>
-  <div @androidback="back">
+  <div @clickbackitem="back">
     <router-view style="flex:1"></router-view>
   </div>
 </template>
