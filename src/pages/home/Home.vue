@@ -49,5 +49,4 @@ export default {
     this.$store.dispatch('LOAD_TODOS')
   }
 }
-
 </script>
