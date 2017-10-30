@@ -23,7 +23,7 @@
     <list class="todos-list">
       <cell class="todos-cell"
             v-for="todo in todos"
-            v-bind:key="todo"
+            v-bind:key="todo.todoId"
             append="tree">
         <todo :todo="todo"
               :todoId="todo.todoId"></todo>

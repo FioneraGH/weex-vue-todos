@@ -11,12 +11,11 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const bannerPlugin = new webpack.BannerPlugin(
-  '// { "framework": "Vue" }\n'
-)
+const bannerPlugin = new webpack.BannerPlugin('// { "framework": "Vue" }\n')
 
 function getBaseConfig() {
   return {
+    devtool: '#source-map',
     entry: {
       app: path.resolve('./src/app.js')
     },
@@ -83,12 +82,30 @@ function getBaseConfig() {
   }
 }
 
+const commonOption = {
+  compilerModules: [
+    {
+      postTransformNode: el => {
+        el.staticStyle = `$processStyle(${el.staticStyle})`
+        el.styleBinding = `$processStyle(${el.styleBinding})`
+      }
+    }
+  ]
+}
+const webLoader = {
+  loader: 'vue-loader',
+  options: commonOption
+}
 const webConfig = getBaseConfig()
 webConfig.output.filename = '[name].web.js'
-webConfig.module.rules[3].use.push('vue-loader')
+webConfig.module.rules[3].use.push(webLoader)
 
+const weexLoader = {
+  loader: 'weex-loader',
+  options: commonOption
+}
 const weexConfig = getBaseConfig()
 weexConfig.output.filename = '[name].weex.js'
-weexConfig.module.rules[3].use.push('weex-loader')
+weexConfig.module.rules[3].use.push(weexLoader)
 
 module.exports = [webConfig, weexConfig]
