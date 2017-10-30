@@ -92,4 +92,3 @@ weexConfig.output.filename = '[name].weex.js'
 weexConfig.module.rules[3].use.push('weex-loader')
 
 module.exports = [webConfig, weexConfig]
-
