@@ -11,8 +11,8 @@
   margin-bottom: 3px;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: #DDDDDD;
-  background-color: #FFFFFF;
+  border-bottom-color: #dddddd;
+  background-color: #ffffff;
 }
 </style>
 
@@ -23,6 +23,7 @@
     <list class="todos-list">
       <cell class="todos-cell"
             v-for="todo in todos"
+            v-bind:key="todo"
             append="tree">
         <todo :todo="todo"
               :todoId="todo.todoId"></todo>

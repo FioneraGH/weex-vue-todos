@@ -70,7 +70,11 @@ export default {
   components: { AppHeader },
   computed: {
     todo() {
-      return this.$store.state.todos[this.$route.params.todoId] || { name: 'Deleted' }
+      return (
+        this.$store.state.todos[this.$route.params.todoId] || {
+          name: 'Deleted'
+        }
+      )
     },
     isDone() {
       return this.todo.done
@@ -78,16 +82,19 @@ export default {
   },
   methods: {
     modifyTodo() {
-      modal.prompt({
-        message: 'Modify Current:'
-      }, value => {
-        if (value.result === 'OK' && value.data.length > 0) {
-          this.$store.dispatch('MODIFY_TODO', {
-            key: this.$route.params.todoId,
-            name: value.data
-          })
+      modal.prompt(
+        {
+          message: 'Modify Current:'
+        },
+        value => {
+          if (value.result === 'OK' && value.data.length > 0) {
+            this.$store.dispatch('MODIFY_TODO', {
+              key: this.$route.params.todoId,
+              name: value.data
+            })
+          }
         }
-      })
+      )
     },
     deleteTodo() {
       this.$router.back()

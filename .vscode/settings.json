@@ -15,5 +15,7 @@
     "plugins": [
       "html"
     ]
-  }
+  },
+  "prettier.singleQuote": true,
+  "prettier.semi": false
 }
