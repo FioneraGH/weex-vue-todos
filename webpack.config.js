@@ -11,7 +11,10 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const bannerPlugin = new webpack.BannerPlugin('// { "framework": "Vue" }\n', "raw": true)
+const bannerPlugin = new webpack.BannerPlugin({
+  'banner': '// { "framework": "Vue" }\n',
+  'raw': true
+})
 
 function getBaseConfig() {
   return {
