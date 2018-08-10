@@ -56,7 +56,6 @@
               @click="modifyTodo">Modify</text>
       </div>
     </div>
-    </list>
   </div>
 </template>
 

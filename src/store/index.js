@@ -2,15 +2,14 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as mutations from './mutations'
 
+import curTodoInfo from './module/CurTodoInfo'
+
 /* eslint-disable no-undef */
 if (WXEnvironment.platform !== 'Web') {
   Vue.use(Vuex)
 }
 
 const store = new Vuex.Store({
-  actions,
-  mutations,
-
   state: {
     todos: {
       // 'id': {
@@ -19,6 +18,12 @@ const store = new Vuex.Store({
       //   done:true
       // }
     }
+  },
+  actions,
+  mutations,
+
+  modules: {
+    curTodoInfo
   },
 
   getters: {

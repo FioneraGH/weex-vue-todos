@@ -1,4 +1,4 @@
-const uuidV4 = require('uuid/v4')
+import uuidV4 from 'uuid/v4'
 
 export function SET_TODOS(state, { todos }) {
   Vue.set(state, 'todos', todos)
@@ -9,7 +9,8 @@ export function ADD_TODO(state, { name }) {
 }
 
 export function DELETE_TODO(state, { key }) {
-  Vue.set(state.todos, key, undefined)
+  // Vue.set(state.todos, key, undefined)
+  delete state.todos.key
 }
 
 export function MODIFY_TODO(state, { key, name }) {
